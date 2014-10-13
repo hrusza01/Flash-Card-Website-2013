@@ -1,0 +1,194 @@
+{% extends "flashcardapp/base.html" %}
+<html>
+	<head>
+		{% load static from staticfiles %}
+		
+		{% block additionalcss %}
+		<!--<link rel="stylesheet" type="text/css" href="{% static "css/homecss.css" %}" />-->
+		<link rel="stylesheet" type="text/css" href="{% static "css/study.css" %}" />
+		{% endblock additionalcss %}
+		
+		{% block javascript %}
+		<!-- <script type="text/javvascript" src="{% static "javascript/studycardselector.js" %}"></script> ------ Doesn't want to get hooked up properly at this point -->
+		<script type="text/javascript">
+			$(function() {
+				
+				//add arrow to show this is the currently selected page.
+				$("#studylink").after('<div class="arrow-up studyselected" ></div>');
+				
+				function callback(data){ //Selecting a class will call this method.
+					result = eval(data);
+					if(result.message != 'SUCCESS'){
+						alert(result.message);
+					}
+					else{
+						var $scrollabletab = $(".scrollabletab");
+						$scrollabletab.html("");
+						var containers = result.containers;
+						for (var i=0; i < containers.length; i++) { //Displays all of the containers within the selected class
+							var container = containers[i];
+							$scrollabletab.append('<h3 class="containerName">' + container.title + '</h3>');
+							$scrollabletab.append('<ul class="boxes" data-title="'+ container.title +'"></ul>');
+							var $boxlist = $scrollabletab.find('[data-title="'+ container.title +'"]');
+							var boxes = container.boxes;
+							for (var j=0; j < boxes.length; j++) { //Display all of the boxes associated with the given container.
+								$boxlist.append('<li>' +
+									'<input type="checkbox" name="toStudy" value="'+ boxes[j].id +'"><img class="boximg" src="{% static "images/openedboxicon.png" %}" />' +
+									'<span class="boxname">'+ boxes[j].title +'</span>' +
+								'</li>');
+							}
+						}
+					}
+				}
+				
+				function getSelectedBoxes() {
+					var boxesRequested = "boxes="
+					$("[type='checkbox']:checked").each(function() {
+						boxesRequested = boxesRequested + $(this).attr("value") + "_";
+					});
+					boxesRequested = boxesRequested.substring(0, boxesRequested.length - 1) //Slice off the extra '-'
+					return boxesRequested
+				}
+				
+				$(".displayclass").button().click(function() {
+					var classId = $(this).data("classid");
+					Dajaxice.flashcardapp.getContainers(callback, {'classId':classId});
+				});
+				
+				
+				$("#startstudying").click(function() {
+					var boxesRequested = getSelectedBoxes();
+					if (boxesRequested !== "boxes=") {
+						//If we actually have boxes selected
+						window.location = "cardviewer.html?" + boxesRequested;
+					}
+				});
+				
+				$("#testme").click(function() {
+					var boxesSelectedString = getSelectedBoxes();
+					if (boxesSelectedString !== "boxes=") {
+						$("#testmedialog").dialog({
+							height: 290,
+							width: 430,
+							modal: true,
+							buttons: {
+								Cancel: function() {
+									$(this).dialog("close");
+								},
+								"Test Me": function() {
+									var numberofcards = $("#numberofcards option:selected").val();
+									window.location = "cardviewer.html?" + boxesSelectedString + "&numberofcards=" + numberofcards + "&testme=True";
+								}
+							}
+						});
+					}
+				})
+				
+				$("#classes").buttonset();
+			});
+		</script>
+		{% endblock javascript %}
+	</head>
+	<body>
+		{% block pagebanner %}
+			<h1 id="pagetitle">Study</h1>
+		{% endblock pagebanner %}
+		
+		{% block dialogs %}
+			<div class="dialog" id="testmedialog" title="Test Me Options">
+				<p>"Test Me" allows you to be tested on a random sampling of flashcards from the selected boxes.</p>
+				<label for="numberofcards">Number of cards to be tested on: </label>
+				<select id="numberofcards">
+					<option value="10">10</option>
+					<option value="15">15</option>
+					<option value="20">20</option>
+					<option value="25">25</option>
+					<option value="30">30</option>
+				</select>
+			</div>
+		{% endblock dialogs %}
+		
+		{% block content%}
+			<h2 id="description">Select Study Boxes to Study</h2>
+			
+			<aside id="classes"> <!-- classlist is provided by the Context object in views.py -->
+				<h3 id="classbanner">Classes</h3>
+				<hr />
+				{% for class in classlist %} <!-- can only loop over lists -->
+					{% if class.title != "__default__" %}
+						<input class="displayclass" type="radio" data-classid="{{class.Id}}" id="{{class.title}}" name="radio" /><label for="{{class.title}}">{{class.title}}</label>
+					{% endif %}
+				{% endfor %}
+			</aside>
+			<div class="scrollabletab">
+				<h3 class="containerName">Unit 1</h3>
+				<ul class="boxes">
+					<li>
+						<input type="checkbox" name="toStudy" value="box1"><img class="boximg" src="{% static "images/boxtest.png" %}" />
+						<span class="boxname">Vocab</span>
+					</li>
+					<li>
+						<input type="checkbox" name="toStudy" value="box2"><img class="boximg" src="{% static "images/boxtest.png" %}" />
+						<span class="boxname">Functions</span>
+					</li>
+					<li>
+						<input type="checkbox" name="toStudy" value="box3"><img class="boximg" src="{% static "images/boxtest.png" %}" />
+						<span class="boxname">Everything to Do with Cells</span>
+					</li>
+					<li>
+						<input type="checkbox" name="toStudy" value="box4"><img class="boximg" src="{% static "images/boxtest.png" %}" />
+						<span class="boxname">Past Tense</span>
+					</li>
+					<li>
+						<input type="checkbox" name="toStudy" value="box5"><img class="boximg" src="{% static "images/boxtest.png" %}" />
+						<span class="boxname">Box 5</span>
+					</li>
+					<li>
+						<input type="checkbox" name="toStudy" value="box6"><img class="boximg" src="{% static "images/boxtest.png" %}" />
+						<span class="boxname">Box 6</span>
+					</li>
+					<li>
+						<input type="checkbox" name="toStudy" value="box7"><img class="boximg" src="{% static "images/boxtest.png" %}" />
+						<span class="boxname">Box 7</span>
+					</li>
+				</ul>
+				<hr />
+				<h3 class="containerName">Unit 2</h3>
+				<ul class="versiontwo">
+					<li>
+						<input type="checkbox" name="toStudy" value="box8"><img class="boximg" src="{% static "images/boxtest.png" %}" />
+						<span class="boxtitle">Vocabulary</span>
+						<div class="boxstats">
+							<span>15 cards</span>
+							<span>Studied 3x</span>
+							<span>Avg Performance: 93%</span>
+						</div>
+					</li>
+					<li>
+						<input type="checkbox" name="toStudy" value="box9"><img class="boximg" src="{% static "images/boxtest.png" %}" />
+						<span class="boxtitle">Awesome Stuff to Study</span>
+						<div class="boxstats">
+							<span>50 cards</span>
+							<span>Not Studied</span>
+							<span>Avg Performance: 0%</span>
+						</div>
+					</li>
+					<li>
+						<input type="checkbox" name="toStudy" value="box10"><img class="boximg" src="{% static "images/boxtest.png" %}" />
+						<span class="boxtitle">Things I Don't Know Well</span>
+						<div class="boxstats">
+							<span>20 cards</span>
+							<span>Studied 7x</span>
+							<span>Avg Performance: 65%</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div id="studybuttons">
+				<button onclick="alert('Popup for selecting study options')">Study Options</button>
+				<button id="startstudying">Study Selected</button>
+				<button id="testme">Test Me</button>
+			</div>
+		{% endblock content %}
+	</body>
+</html>

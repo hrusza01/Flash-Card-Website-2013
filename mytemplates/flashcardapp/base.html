@@ -1,0 +1,146 @@
+{% load dajaxice_templatetags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static from staticfiles %}
+	
+    <link rel="stylesheet" href="{% static "css/site.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/createflashcard.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/homecss.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/jqueryTheme/jquery-ui-1.10.2.custom.min.css" %}">
+
+    <!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" /> -->
+
+    {% block additionalcss %}{% endblock additionalcss %}
+	
+    <!-- Javascript can placed at the end to improve page loading speeds -->
+	<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="{% static "javascript/messagebanner.js" %}"></script>
+	<script type="text/javascript" src="{% static "javascript/createdialog.js" %}"></script>
+	{% dajaxice_js_import %}
+	{% block javascript %}{% endblock %}
+
+
+	<script>
+		$(document).ready(function(){
+		    $("#createmenu").menu().hide();
+		    
+	        $("#createlist").hover(function() {
+	        	$("#createmenu")
+	                .show()
+	                .animate({"opacity":1}, 250);
+	        },function(){
+	             $("#createmenu").hide();
+	                 /*.animate({"opacity":0}, 250, function() {
+	                 	$(this).hide();   
+	                 });*/
+	        });
+		});
+	</script>
+    
+    <title>{% block title %}Epic Study!{% endblock title %}</title>
+</head>
+
+<body>
+	<div id="banner">
+		<header id="pagebanner">
+			
+			<!-- Allows the User to Login or Logout and displays their username if they are logged in -->
+			{% if user == None %}
+				<span id="username"><a href="/login/google" class="loginoutLink" >Login</a></span>
+			{% else %}
+				<span id="username">Welcome {{user.first_name}} {{user.last_name}} (<a href="/logout" class="loginoutLink" >Logout</a>)</span>
+			{% endif %}
+			
+			<!-- header contains a banner that displays our the page name -->
+			{% block pagebanner %}
+				<h1 id="pagetitle">Epic Study!</h1>
+			{% endblock pagebanner %}
+			<span class="clear"> </span>
+		</header>
+		<nav id="links">
+	    {% block sitelinks %}
+	    <ul id="sitelinks">
+	        <li class="sitelist"><a href="/epicstudy" id="homelink">Home</a></li>
+	        {% if user == None %}
+	        	<li class="sitelist disabled" id="createlist"><a href="createcard.html" id="createlink">Create <span style="font-size: 9px; vertical-align:middle">∨</span></a></li>
+	        	<li class="sitelist disabled"><a href="study.html" id="studylink">Study</a></li>
+		        <li class="sitelist disabled"><a href="mycards.html" id="mycardslink" >My Cards</a></li>
+	        {% else %}
+		        <li class="sitelist" id="createlist"><a href="createcard.html" id="createlink">Create <span style="font-size: 9px; vertical-align:middle">∨</span></a>
+		        	<ul id="createmenu">
+		        		<li><a onclick="createClass()">New Class</a></li>
+		        		<li><a onclick="createContainer()">New Container</a></li>
+		        		<li><a onclick="createBox()">New Study Box</a></li>
+		        		<li><a onclick="createCard()">New Flashcard</a></li>
+		        	</ul>
+		        </li>
+		        <li class="sitelist"><a href="study.html" id="studylink">Study</a></li>
+		        <li class="sitelist"><a href="mycards.html" id="mycardslink">My Cards</a></li>
+		      {% endif %}
+	        <li class="sitelist"><a href="browsecard.html" id="browselink">Browse Shared</a></li>
+	    </ul>
+	    {% endblock sitelinks %}
+		</nav>
+	</div>
+	<!--<hr /> -->
+	<div id="outer">
+            <div id="classdialog" class="dialog" title="Create A New Class">
+                <p>Please enter the name of your new Class.</p>
+                Class Title: <input type="text" id="classname"><br>
+            </div>
+
+            <div id="containerdialog" class="dialog" title="Create A New Container">
+                <label for="containerclassoption">Class: </label>
+                <select id="containerclassoption"></select><hr>
+                <p>Please enter the name of your new container.</p>
+                Container Title: <input type="text" id="containername"><br>
+            </div>
+
+            <div id="boxdialog" class="dialog" title="Create A New Box">
+                <label for="boxclassoption" class="boxclasslabel">Class: </label>
+                <select id="boxclassoption"></select><br />
+                <label for="boxcontaineroption" class="label" >Container: </label>
+                <select id="boxcontaineroption"></select><br /><hr />
+                <p>Please enter the name of your new box.</p>
+                Box: <input type="text" id="boxname"></input><br>     
+            </div>
+
+            <div id="carddialog" class="dialog" title="Create A New Card">
+                <label for="cardclassoption" class="cardclasslabel" >Class: </label>
+                <select id="cardclassoption"></select><br />
+
+                <label for="cardcontaineroption" id="countainerlabel">Container: </label>
+                <select id="cardcontaineroption"></select><br />
+
+                <label for="cardboxoption" class="boxlabel">Box: </label>
+                <select id="cardboxoption"></select><br /><hr />
+
+                <p>Please enter the front and back of your new card.</p>
+                <label>Front:</label>
+
+                <textarea rows="2" cols="40" id='cardfront' class="cardfront"></textarea><hr />
+                <br />
+                <div id="backarea" overflow-y: scroll></div>
+                <button class = 'removeBackButton' onclick="removeABack()">Remove Back</button>
+                <button class ='addButton' onclick="addButton('backarea')">Add New Back</button></br>
+
+            </div>
+
+        {% block dialogs %}{% endblock %}
+        <div id="successOrFailure"><div id="successOrFailureMessage" class="errormessage">Success!</div></div>
+	    {% block content %}{% endblock %}
+	    <span class="clear"> </span>
+	    <footer>
+	    	{% block footer %}
+	    		<p>Epic Study&copy; was produced and developed by the 2012-2013 Luther College Senior Project team of 
+	    			Jake Nowosatka, Evan Larson, Matt "Rush" Rubins, Hannah Ranum, and Zach Hruska.</p>
+	    	{% endblock footer %}
+	    </footer>
+	    <span class="clear"> </span>
+	</div>
+    
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% block content %}
+       <form method="get" action=".">
+        <table>
+            <tr><th><label for="id_q">Search:</label></th><td><input type="text" name="q" id="id_q" /></td></tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        
+        {% if query %}
+            {% for result in page.object_list %}
+                <p>
+                    <a href="http://127.0.0.1:8000/epicstudy/thepageforthisthing"/>{{result.object}}</a>
+                </p>
+            {% empty %}
+                <p>No results found.</p>
+            {% endfor %}
+        {% endif %}
+    </form>
+{% endblock %}

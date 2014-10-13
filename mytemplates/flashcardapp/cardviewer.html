@@ -1,0 +1,161 @@
+{% extends "flashcardapp/base.html" %}
+
+<html>
+
+    <head>
+		{% load static from staticfiles %}
+		<script type="text/javascript" scr="{% static "javascript/createdialog.js"%}"></script>
+		
+		{% block additionalcss %}
+        <link rel="stylesheet" type="text/css" href="{% static "css/cardviewer.css" %}">
+        {% endblock additionalcss %}
+
+		{% block javascript %}
+			<script>
+			    $(function() {
+			        $("#cardcontainer").click(function(){
+			        	$("#front").toggle();
+			            $("#flashcardback").toggle();
+
+			        });
+
+			        $("button").click(function(event){
+			        	event.stopPropagation();
+			        });
+					var cardslist = {{cards|safe}}; //Get our Context Object that is JSON like
+					var index = 0;
+					var numberOfCards = cardslist.length;
+					
+					
+					//Initialize side drop down menu based on sides of the current flashcard
+					updateSideMenuAndFlashcard = function(){
+						var val = $("#sidemenu").val()
+						$("#sidemenu").empty();
+						//$("<option></option>", {"html":"Definition","value":0}).appendTo("#sidemenu");
+						labels = cardslist[index].sidelabels;
+						for(var i = 0; i < labels.length; i++){
+							$("<option></option>", {"html":labels[i].name, "value":labels[i].id}).appendTo("#sidemenu");
+						}
+						updateFlashcardBack(val);
+					}
+					
+					updateFlashcardBack = function(oldval){
+						var val = $("#sidemenu option:selected").val()
+						if (oldval){
+							val = oldval
+						}
+						//If definition is selected OR the currently selected side doesn't exist for this card. Return the definition.
+						if(!cardslist[index].sides[val]){
+							//Definition case
+							defaultSideLabelId = cardslist[index].defaultSideLabel_id
+							$("#sidemenu").val(defaultSideLabelId);
+							$("#flashcardback").html(cardslist[index].sides[defaultSideLabelId].text);
+						}else{
+							//Currently selected side exists for this card. Return it!
+							$("#flashcardback").html(cardslist[index].sides[val].text);
+							$("#sidemenu").val(val);
+						}
+					}
+					
+					
+					//Initialize the view with the first card
+					$("#front").html(cardslist[0].term);
+					$("#flashcardback").html(cardslist[0].definition);
+					$("#index").html("1");
+					$("#total").html(numberOfCards);
+					updateSideMenuAndFlashcard();
+					
+					
+					nextCard = function() {
+						//Increment the index, and then display the card with that index.
+						index = (index+1)%numberOfCards;
+						$("#front").html(cardslist[index].term);
+						//$("#flashcardback").html(cardslist[index].definition);
+						updateSideMenuAndFlashcard();
+						
+						//Reset the view and update the current card number
+						$("#index").html(index+1);
+						$("#front").show();
+			            $("#flashcardback").hide();
+					}
+					
+					previousCard = function() {
+						//Decrement the index, taking into account that index might be 0.
+						if (index == 0) {
+							index = numberOfCards - 1
+						}
+						else {
+							index = index - 1;
+						}
+						$("#front").html(cardslist[index].term);
+						//$("#flashcardback").html(cardslist[index].definition);
+						updateSideMenuAndFlashcard();
+						
+						//Reset the view and update the current card number
+						$("#index").html(index+1);
+						$("#front").show();
+			            $("#flashcardback").hide();
+					}
+					
+					reset = function() {
+						//Return to card 0
+						index = 0;
+						$("#front").html(cardslist[index].term);
+						//$("#flashcardback").html(cardslist[index].definition);
+						updateSideMenuAndFlashcard();
+												
+						//Reset the view and update the current card number
+						$("#index").html(index+1);
+						$("#front").show();
+			            $("#flashcardback").hide();
+					}
+
+					shuffle = function(){
+						var index = Math.floor((Math.random()*numberOfCards)+1)
+						console.log(index)
+						$("#front").html(cardslist[index].term)
+						//$("#flashcardback").html(cardslist[index].definition)
+						updateSideMenuAndFlashcard();
+						index++
+					}
+				});
+			</script>
+		{% endblock javascript %}
+
+    </head>     
+    
+   	<body>
+		{% block content%}
+		<!-- look at forms maybe they might be better then canvas ????? -->
+		<div id="studycontainer">
+			<div id="cardcontainer">
+				<p id= "front"></p>
+				<p id="flashcardback"></p>
+			</div>
+			<div id="buttons">
+				<select id="sidemenu" onchange="updateFlashcardBack()"></select>
+				<button type="button" id="reset" onclick="reset()">
+					Restart
+				</button>
+				<button type="button" id="back" onclick="previousCard()">
+					Back
+				</button>
+				<button type="button" id="next" onclick="nextCard()">
+					Next
+				</button>
+				<label><span id="index"> </span> of <span id="total"> </span></label>
+				<button type="button" id="shuffle" onclick="shuffle()">
+					Shuffle
+				</button>
+				<button type="button" onclick="alert(' this card to the pile of cards I do not know')">
+					Don't know
+				</button>
+				<button type="button" onclick="alert('Add this card to the pile of card I do know')">
+					Mastered
+				</button>
+			</div>
+		</div>
+
+		{% endblock content %}
+	</body>
+</html>

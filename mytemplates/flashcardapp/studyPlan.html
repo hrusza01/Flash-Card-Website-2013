@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" src="customDialogBox.min.js"></script>
+		<link rel = "stylesheet" type ="text/css" href ="homecss.css">
+	</head>
+
+	<script>
+		function saveDialogBox(obj)
+		{
+			alert("SAVED");
+		}
+	</script>
+
+	<header>
+		<span id="username"> User Name</span>
+		<h1> FlashCard Study Plan</h1>
+	</header>
+
+	<hr />
+	<body>
+		<label>Title</label> <br />
+		<input type= "textbox"/>
+		<hr />
+
+		<div id= "StudyPlan">
+			<label>StudyPlan</label> <br><br>
+			<input type="radio" name="studyPlan" value="Everyday">Every Day<br><br>
+			<input type="radio" name="studyPlan" value="EveryOtherDay">Every Other Day<br><br>
+			<input type="radio" name="studyPlan" value="OnceAWeek">Once a Week<br><br>
+			<input type="radio" name="studyPlan" value="M/W/F">M/W/F<br><br>
+			<input type="radio" name="studyPlan" value="T/Th">T/Th<br><br>
+		
+		</div>
+		<hr />
+
+		<input type = "button" value ="Add a card"/>
+
+		<input type = "button" value ="Save" onclick = "saveDialogBox(this)"/>
+
+	</body>	
+
+</html>

@@ -1,0 +1,42 @@
+#buttons
+{
+   width: 40%;
+   margin-left: auto;
+   margin-right: auto;
+}
+#flashcardback
+{
+    overflow: auto
+}
+
+#cardcontainer
+{
+
+	border: 5px dashed black;
+	height: 350px;
+	overflow: auto;
+	
+}
+
+#textarea
+{
+    border:solid;
+    resize:none;
+}
+
+#front
+{
+    
+    text-align:center;
+    padding: 5px;
+    font-size: 60px;
+
+}
+
+#flashcardback
+{
+    display:none;
+    text-align: center;
+    padding: 5px;
+    font-size: 60px;
+}

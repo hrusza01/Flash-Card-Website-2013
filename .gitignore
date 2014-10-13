@@ -1,0 +1,6 @@
+venv
+database
+activate.bat
+*.pyc
+.hg
+.hgignore

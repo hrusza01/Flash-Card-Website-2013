@@ -1,0 +1,28 @@
+{% extends "flashcardapp/base.html" %}
+
+<html>
+		{% load static from staticfiles %}
+
+		
+		{% block additionalcss %}
+        <link rel = "stylesheet" type ="text/css" href="{% static "css/createflashcard.css" %}">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+		<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+        {% endblock additionalcss %}
+
+	{% block javascript %}
+	<script>
+
+
+	{% endblock javascript %}
+	</script>
+
+	<body>
+    {% block content %}
+    	<label>Card Front</label>
+
+	</body>
+	{% endblock content %}
+</html>
+

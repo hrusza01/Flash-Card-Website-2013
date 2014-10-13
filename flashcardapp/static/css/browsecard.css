@@ -1,0 +1,184 @@
+
+#minimizedSearch, #expandedSearch
+{
+	float: right;
+}
+
+#searchSection
+{
+	background: #BFB6AB;
+	padding: 5px;
+}
+
+.containerIcon
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.containerDownloadAndPreview
+{
+	width: 150px;
+	display: inline-block;
+}
+
+.options
+{
+	font-size: 12px;
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.tags
+{
+	font-size: 14px;
+	/*display: inline-block;*/
+	/*width: 25%;*/
+	text-align: right;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-right: 2px;
+}
+
+#numberofresults
+{
+	text-align: center;
+	display: inline-block;
+	margin-left: 26%; /*Want to try and find a better way of centering this against the icon key */
+	margin-right: auto;
+}
+
+.info
+{
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 0px;
+	padding-left: 0px;
+	list-style: none;
+}
+
+#updateinfo
+{
+	font-size: 12px;
+}
+
+#optionsdropdown
+{
+	position: absolute;
+	font-size: 12px;
+	text-align: right;
+	right: 65px;
+	/*top: 105px;*/
+	z-index: 9001; /*Makes the dropdown menu overlap any other element on the page since nothing else has a higher z-index*/
+}
+
+#advoptions
+{
+	display: inline-block;
+}
+
+.result
+{
+	/*border: 1px solid red;*/
+	border-radius: 5px;
+	width: 48%;
+	padding: 5px;
+	margin: 5px;
+	display: inline-block;
+	padding: 5px;
+	background: #ECE5DD;
+	/*------ Adding Recessed Look ------------*/
+	-moz-box-shadow: inset 0 0 8px 3px #888;
+	-webkit-box-shadow: inset 0 0 8px 3px #888;
+	box-shadow: inset 0 0 8px 3px #888;
+	/*border-bottom: 2px solid #ddd;
+	border-right: 2px solid #ddd;*/
+	/*End of Recessed Look Styling*/
+}
+
+.previewOption, .downloadOption
+{
+	color: blue;
+	cursor: pointer;
+}
+
+#iconkey
+{
+	display: inline-block;
+	margin: 0px;
+}
+
+/*----------- CSS for Styling the Preview and Study Dialog ----------*/
+#term, #backside
+{
+	text-align: center;
+	padding: 5px;
+	/*font-size: 25px;*/
+}
+
+#backside
+{
+	display: none;
+}
+
+#navigator
+{
+	display: inline-block;
+	margin-left: 30px;
+}
+
+#reverseside
+{
+	width: 130px;
+}
+
+#controls
+{
+	margin: 0px auto;
+}
+
+#carddisplay
+{
+	width: 465px;
+	height: 200px;
+	margin-bottom: 5px;
+	border: 1px solid black;
+	/* Firefox */
+		display:-moz-box;
+		-moz-box-pack:center;
+		-moz-box-align:center;
+
+	/* Safari, Chrome, and Opera */
+		display:-webkit-box;
+		-webkit-box-pack:center;
+		-webkit-box-align:center;
+}
+
+#sidelabel
+{
+	display: inline-block;
+	position: absolute;
+	font-size: 16px;
+	right: 16px;
+	top: 9px;
+	padding: 3px;
+	border: 1px solid red;
+}
+
+#fliptip
+{
+	font-size: 12px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	/* Firefox */
+		display:-moz-box;
+		-moz-box-pack:center;
+		-moz-box-align:center;
+
+	/* Safari, Chrome, and Opera */
+		display:-webkit-box;
+		-webkit-box-pack:center;
+		-webkit-box-align:center;
+}

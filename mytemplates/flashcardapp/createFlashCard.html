@@ -1,0 +1,64 @@
+{% extends "flashcardapp/base.html" %}
+
+<html>
+        {% load static from staticfiles %}
+
+        {% block additionalcss %}
+        <link rel = "stylesheet" type ="text/css" href="{% static "css/createflashcard.css" %}">
+        <link rel="stylesheet" type="text/css" href="{% static "css/homecss.css" %}">
+        {% endblock additionalcss %}
+        
+        {% block javascript %}
+	        <script>
+	        	$(function() {
+	        		//add arrow to show this is the currently selected page.
+					$("#homelink").after('<div class="arrow-up createselected" ></div>');
+	        	});
+	        </script>	
+        {% endblock %}
+
+        <body>
+            {% block pagebanner %}
+                <h1 id="pagetitle">Create A New Flashcard</h1>
+            {% endblock pagebanner %}
+
+        {% block content%}
+        
+        <p id='pageinfo'>Click any of the boxes to create a new class, container, box or flashcard.</p>
+        <div id='page'>
+            <div id="classbox" onclick = "createClass()">
+                <p class='title'> +  CLASS</p>
+                <p class='description'>To hold your containers</p>
+                <img id='createicon' src="{% static "images/classicon.png" %}">
+                <p class='example'>(ex: Biology 150)</p>
+            </div>
+
+            <div id="containerbox" onclick ="createContainer()">
+                <p class='title'>+  CONTAINER<p>
+                <p class='description'>To hold your boxes</p>
+                <img id='createicon' src="{% static "images/classicon.png" %}">
+
+                <p class='example'>(ex: Cells)</p>
+            </div>
+
+            <div id="boxbox" onclick ="createBox()">
+                <p class='title'>+  BOX</p>
+                <p class='description'>To hold your flashcards</p>
+                <img id='createicon' src="{% static "images/openedboxicon.png" %}">
+
+                <p class='example'>(ex.Cell Parts)</p>
+           </div>
+
+            <div id="cardbox" onclick ="createCard()">
+                <p class='title'>+  FLASHCARD</p>
+                <p class='description'>Create a new flashcard.</p>
+                <img id='createicon' src="{% static "images/flashcardicon.png" %}">
+
+                <p class='example'>('ex: Front/Back)</p>
+            </div>
+        </div>
+
+            {% endblock content %}
+        </body>
+
+</html>

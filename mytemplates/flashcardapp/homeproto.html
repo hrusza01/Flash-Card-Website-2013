@@ -1,0 +1,58 @@
+{% extends "flashcardapp/base.html" %}
+
+<html>
+	<head>
+		{% load static from staticfiles %}
+		{% block javascript %}
+	    	<script type="text/javascript" src="{% static "javascript/createdialog.js" %}"></script>
+	    	<script>
+				$(function () {
+					//add arrow to show this is the currently selected page.
+					$("#homelink").after('<div class="arrow-up homeselected" ></div>');
+				});
+			</script>
+		{% endblock %}
+
+		
+		{% block additionalcss %}
+		<link rel="stylesheet" type="text/css" href="{% static "css/homecss.css" %}">
+		{% endblock additionalcss %}
+		
+	</head>
+
+	<body>
+		{% block content %}
+			<div id="imagelinks">
+				
+				<div class="navigationBox" id="create">
+					<div class="navIcon">
+						<a href="createcard.html"><img src="{% static "images/createicon.png" %}" /></a>
+						<span class="iconlabel">Create</span> <!-- Should probably just use a label tag, but we'll see -->
+					</div>
+				</div>
+				
+				<div class="navigationBox" id="study">
+					<div class="navIcon">
+						<a href="study.html"><img src="{% static "images/studyicon.png" %}" /></a>
+						<span class="iconlabel">Study</span> <!-- Should probably just use a label tag, but we'll see -->
+					</div>
+				</div>
+				
+				<div class="navigationBox" id="mycards">
+					<div class="navIcon">
+						<a href="mycards.html"><img src="{% static "images/mycardsicon.png" %}" /></a>
+						<span class="iconlabel">My Cards</span> <!-- Should probably just use a label tag, but we'll see -->
+					</div>
+				</div>
+				
+				<div class="navigationBox" id="browseshared">
+					<div class="navIcon">
+						<a href="browsecard.html"><img src="{% static "images/browsesharedicon.png" %}" /></a>
+						<span class="iconlabel">Browse Shared</span> <!-- Should probably just use a label tag, but we'll see -->
+					</div>
+				</div>
+				
+			</div>
+		{% endblock content %}
+	</body>
+</html>

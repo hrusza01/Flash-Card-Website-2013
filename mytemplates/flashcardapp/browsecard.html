@@ -1,0 +1,236 @@
+{% extends "flashcardapp/base.html" %}
+
+<html>
+	
+	<!-- Add Plugin for Rating System -->
+	
+	<head>
+		{% load static from staticfiles %}
+		
+		{% block additionalcss %}
+        	<link rel="stylesheet" type="text/css" href="{% static "css/browsecard.css" %}"></link>
+        {% endblock additionalcss %}
+
+	{% block javascript %}
+    <script type="text/javascript">
+		$(function(){
+			//add arrow to show this is the currently selected page.
+			$("#browselink").after('<div class="arrow-up browseselected" ></div>');
+			
+			var shared = {{shared|safe}};
+			showSharedContainers(shared);
+			
+			function showSharedContainers(shared) {	
+				if (shared.containers != null && shared.containers.length != 0) {
+					if (shared.containers.length === 1) {
+						$("#numberofresults").html("1 Result Found");
+					}
+					else {
+						$("#numberofresults").html(shared.containers.length + " Results Found");
+					}
+					for (var i=0; i < shared.containers.length; i++) {
+						if (shared.containers[i].sharedAttributes.professorApproved) {
+							var icon = "{% static "images/profapprvsharedicon.png" %}";
+						}
+						else {
+							var icon = "{% static "images/sharedcardsstackicon.png" %}";
+						}
+						$("#searchresults").append(
+							'<section class="result" data-containerid="' + shared.containers[i].id + '" data-classid="'+ shared.containers[i].classkey_id +'">' +
+								'<div class="containerDownloadAndPreview">' +
+									'<img class="containerIcon" src="'+ icon +'" />' +
+									'<p class="options"><span class="previewOption">(Preview)</span> <span class="downloadOption">(Save)</span></p>' +
+								'</div>' +
+								'<ul class="info">' +
+									'<li class="containertitle">Title: ' + shared.containers[i].title + '</li>' +
+									'<li class="author">Author: ' + shared.containers[i].sharedAttributes.author + '</li>' +
+									'<li class="rating">Rating: ' + shared.containers[i].sharedAttributes.rating + '</li>' +
+								'</ul>' +
+								'<p class="tags">stuff</p>' +
+							'</section>');
+						var $tags = $("[data-containerid="+ shared.containers[i].id +"] .tags");
+						$tags.html("Tags: ");
+						for (var j=0; j < shared.containers[i].tags.length; j++) {
+							$tags.append(shared.containers[i].tags[j].tag + " ");
+						}
+					}
+				}
+				else {
+					$("#numberofresults").html("No Results Found");
+				}
+			}
+  			
+  			$("#searchAll").keydown(function(e) {
+  				if (e.keyCode == 13) {
+  					alert("Return/Enter pressed");
+  				}
+  			})
+  			
+  			$("body").delegate(".previewOption", "click", function() {
+  				var containerId = $(this).parent().parent().parent().data("containerid");
+  				var containerName = $(this).parent().parent().parent().find(".containertitle").html();
+  				$("#previewDialog").attr("title", containerName);
+  				Dajaxice.flashcardapp.getPreviewView(function(data) {
+  					$("#previewDialog").html(data);
+  				},{"containerId":containerId});
+  				
+  				$("#previewDialog").dialog({
+  					height: 410,
+  					width: 500,
+  					modal: true,
+  					resizable: false,
+  					buttons: {
+  						"Done": function() {
+  							$(this).dialog("close");
+  						}
+  					}
+  				})
+  			});
+  			
+  			$("body").delegate(".downloadOption", "click", function() {
+  				var $selected = $(this);
+  				Dajaxice.flashcardapp.isUserAuthenticated(function(response) {
+  					var res = eval(response);
+  					if (!res.validated) {
+  						alert("You must be logged in to download shared cards");
+  					}
+  					else {
+		  				Dajaxice.flashcardapp.getClassList(function(response) {
+			   				var classList = eval(response);
+			   				$("#savelocation").html(""); //Clear the existing contents of the dropdown.
+			   				for(var i = 0; i<classList.list.length;i++) {
+			   					$('#savelocation').append('<option data-classid="'+classList.list[i].id+'" >'+classList.list[i].title+'</option>');
+			   				}
+			   				
+				   		});
+		  				$("#downloadDialog").dialog({
+		  					height: 400,
+		  					width: 500,
+		  					modal: true,
+		  					resizable: true,
+		  					buttons: {
+		  						Cancel: function() {
+		  							$(this).dialog("close");
+		  						},
+		  						"Download": function() {
+		  							//alert("Downloaded a local copy!");
+		  							var containerID = $selected.parent().parent().parent().data("containerid");
+		  							var classID = $("#savelocation option:selected").data("classid");
+		  							var isAutoUpdated = false;
+		  							if ($(this).find(":checkbox:checked").length === 1) {
+		  								isAutoUpdated = true;
+		  							}
+		  							Dajaxice.flashcardapp.addContainerToMyCards(function(response) {
+		  								var res = eval(response);
+		  								if (res.added) {
+		  									displayMessage("Download Successful");
+		  								}
+		  								else {
+		  									displayMessage(res.message, "failure");
+		  								}
+		  							},{"containerId":containerID,"classId":classID, "isAutoUpdated":isAutoUpdated});
+		  							$(this).dialog("close");
+		  						}
+		  					}
+		  				});
+  					}
+  				})
+  			});
+  			
+  			$("#optionsdropdown").menu().hide();
+  			
+  			$("#advoptions").hover(function() {
+	        	$("#optionsdropdown")
+	                .show()
+	                .animate({"opacity":1}, 250);
+	        },function(){
+	             $("#optionsdropdown")
+	                 .animate({"opacity":0}, 250, function() {
+	                 	$(this).hide();   
+	                 });
+	        });
+   		});
+	</script>
+	{% endblock javascript %}
+
+	</head>	
+
+	<body>
+		{% block pagebanner %}
+			<h1 id="pagetitle">Browse Shared Cards</h1>
+		{% endblock pagebanner %}
+		
+		{% block content%}
+		
+		<!-- Begin Dialog boxes definitions -->
+		<div class="dialog" id="downloadDialog" title="Add to My Cards">
+			<p>Save a copy of this set of cards to My Cards. This allows you to study them alongside your own flashcards.</p>
+			<p>
+				<label for="savelocation" >Save Cards to Class:</label><select id="savelocation">
+					<option>Class 1</option>
+				</select> 
+			</p>
+			<p><input type="checkbox" value="autoupdate" /> Receive automatic updates to these cards*</p>
+			
+			<span id="updateinfo">*Turning on automatic updates will prevent you from being able to edit the cards that you're downloading. However, you will recieve any and all updates to
+				these cards that the author makes. This feature can be turned off, but cannot be turned back on.
+			</span>
+		</div>
+		
+		<div class="dialog" id="previewDialog" title="Preview and Study">
+			
+		</div>
+		<!-- End Dialog Section -->
+		
+		<section id="searchSection">
+
+			<div id="minimizedSearch">
+       			<form method="get" action="./browsecard.html">
+           		<label for="searchAll">Search:</label>
+			<input type="text" name="q" id="searchAll" />
+
+				<div id="advoptions">
+					<button id="advancedOptions">Adv Search Options</button>
+					<ul id="optionsdropdown">
+						<li>Rating: 
+							<select name="rating" id="rating">
+								<option value="all">All Ratings</option>
+								<option value="four">Four Stars</option>
+								<option value="three">Three Stars</option>
+								<option value="two">Two Stars</option>
+								<option value="one">One Star</option>
+								<option value="none">No Rating</option>
+							</select>
+						</li>
+						<li><input type="checkbox" />Require Professor Approved</li>
+					</ul>
+				</div>
+			</div>
+			<div class="clear"> </div>
+		</section>
+		<hr />
+		<div id="iconkey">
+			<img src="{% static "images/profapprvsharedicon.png" %}" width="32" height="32" /> = Professor Approved
+		</div>
+		<h4 id="numberofresults"> </h4>
+		<section id="searchresults">
+				<!--<section class="result">
+					<div class="containerDownloadAndPreview">
+						<img class="containerIcon" src="{% static "images/flashcardicon.png" %}" />
+						<p class="options"><span class="previewOption">(Preview)</span> <span class="downloadOption">(Save)</span></p>
+					</div>
+					<ul class="info">
+						<li class="title">Title: Unit 1 Formulas</li>
+						<li class="author">Author: Evan Larson</li>
+						<li class="rating">Rating: ****</li>
+					</ul>
+					<p class="tags">Tags: Physics 151, Kinematics, Energy, Newton's Laws</p>
+				</section>-->
+		</section>
+
+
+		{% endblock content %}
+
+	</body>
+
+</html>

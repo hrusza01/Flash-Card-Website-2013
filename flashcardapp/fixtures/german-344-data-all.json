@@ -1,0 +1,1649 @@
+[
+   {
+      "pk":6,
+      "model":"flashcardapp.class",
+      "fields":{
+         "user":1,
+         "title":"Deutsches Theater"
+      }
+   },
+   {
+      "pk":8,
+      "model":"flashcardapp.container",
+      "fields":{
+         "isPrivate":true,
+         "isUpdatable":true,
+         "sharedAttributes":null,
+         "classkey":6,
+         "title":"Selbstverbesserungproject"
+      }
+   },
+   {
+      "pk":7,
+      "model":"flashcardapp.box",
+      "fields":{
+         "containers":[
+            8
+         ],
+         "title":"Day 1"
+      }
+   },
+   {
+      "pk":8,
+      "model":"flashcardapp.box",
+      "fields":{
+         "containers":[
+            8
+         ],
+         "title":"Day 2"
+      }
+   },
+   {
+      "pk":9,
+      "model":"flashcardapp.box",
+      "fields":{
+         "containers":[
+            8
+         ],
+         "title":"Day 3"
+      }
+   },
+   {
+      "pk":10,
+      "model":"flashcardapp.box",
+      "fields":{
+         "containers":[
+            8
+         ],
+         "title":"New Cards"
+      }
+   },
+   {
+      "pk":11,
+      "model":"flashcardapp.box",
+      "fields":{
+         "containers":[
+            8
+         ],
+         "title":"Day 4"
+      }
+   },
+   {
+      "pk":12,
+      "model":"flashcardapp.box",
+      "fields":{
+         "containers":[
+            8
+         ],
+         "title":"Day 5"
+      }
+   },
+   {
+      "pk":13,
+      "model":"flashcardapp.box",
+      "fields":{
+         "containers":[
+            8
+         ],
+         "title":"Day 6"
+      }
+   },
+   {
+      "pk":14,
+      "model":"flashcardapp.box",
+      "fields":{
+         "containers":[
+            8
+         ],
+         "title":"Day 7"
+      }
+   },
+   {
+      "pk":15,
+      "model":"flashcardapp.box",
+      "fields":{
+         "containers":[
+            8
+         ],
+         "title":"Monday cards"
+      }
+   },
+   {
+      "pk":16,
+      "model":"flashcardapp.box",
+      "fields":{
+         "containers":[
+            8
+         ],
+         "title":"Page 3"
+      }
+   },
+   {
+      "pk":17,
+      "model":"flashcardapp.box",
+      "fields":{
+         "containers":[
+            8
+         ],
+         "title":"Page 4"
+      }
+   },
+   {
+      "pk":8,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to depend on",
+         "term":"ab|h\u00e4ngen von + Dat",
+         "boxes":[
+            11
+         ]
+      }
+   },
+   {
+      "pk":9,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to pay attention to",
+         "term":"achten auf + Akk",
+         "boxes":[
+            11
+         ]
+      }
+   },
+   {
+      "pk":10,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to change something about sth.",
+         "term":"etw \u00e4ndern an + Dat",
+         "boxes":[
+            11
+         ]
+      }
+   },
+   {
+      "pk":11,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to do/use sth. with sth.",
+         "term":"etw an|fangen mit + Dat",
+         "boxes":[
+            11
+         ]
+      }
+   },
+   {
+      "pk":12,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to worry about",
+         "term":"sich \u00e4ngstigen um + Akk",
+         "boxes":[
+            11
+         ]
+      }
+   },
+   {
+      "pk":13,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to depend on",
+         "term":"an|kommen auf + Akk",
+         "boxes":[
+            11
+         ]
+      }
+   },
+   {
+      "pk":14,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to regard so. as sth.",
+         "term":"jdn an|sehen als + Akk",
+         "boxes":[
+            11
+         ]
+      }
+   },
+   {
+      "pk":15,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to respond/reply/answer sth.",
+         "term":"antworten auf + Akk",
+         "boxes":[
+            11
+         ]
+      }
+   },
+   {
+      "pk":16,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to adapt oneself to sth.",
+         "term":"sich an|passen an + Akk",
+         "boxes":[
+            9
+         ]
+      }
+   },
+   {
+      "pk":17,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to act/work as sth.",
+         "term":"arbeiten als + Nom",
+         "boxes":[
+            11
+         ]
+      }
+   },
+   {
+      "pk":18,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to work on sth.",
+         "term":"arbeiten an + Dat",
+         "boxes":[
+            9
+         ]
+      }
+   },
+   {
+      "pk":19,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to work for/at a company",
+         "term":"arbeiten bei + Dat",
+         "boxes":[
+            11
+         ]
+      }
+   },
+   {
+      "pk":20,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to be annoyed/irrated at/with sth./so.",
+         "term":"sich \u00e4rgern \u00fcber + Akk",
+         "boxes":[
+            8
+         ]
+      }
+   },
+   {
+      "pk":21,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to stop doing sth.",
+         "term":"auf|h\u00f6ren mit + Dat",
+         "boxes":[
+            11
+         ]
+      }
+   },
+   {
+      "pk":22,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to pay attention to",
+         "term":"auf|passen auf + Akk",
+         "boxes":[
+            9
+         ]
+      }
+   },
+   {
+      "pk":23,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to get worked up over sth.",
+         "term":"sich auf|regen \u00fcber + Akk",
+         "boxes":[
+            9
+         ]
+      }
+   },
+   {
+      "pk":24,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to dispense/give for sth.",
+         "term":"aus|geben f\u00fcr + Akk",
+         "boxes":[
+            9
+         ]
+      }
+   },
+   {
+      "pk":25,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to thank so.",
+         "term":"sich bedanken bei + Dat",
+         "boxes":[
+            9
+         ]
+      }
+   },
+   {
+      "pk":26,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to thank (so.) for sth.",
+         "term":"sich bedanken f\u00fcr + Akk",
+         "boxes":[
+            9
+         ]
+      }
+   },
+   {
+      "pk":27,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to hurry up with sth.",
+         "term":"sich beeilen mit + Dat",
+         "boxes":[
+            9
+         ]
+      }
+   },
+   {
+      "pk":28,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to begin/set to work on sth.",
+         "term":"beginnen mit + Dat",
+         "boxes":[
+            9
+         ]
+      }
+   },
+   {
+      "pk":29,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to complain to so.",
+         "term":"sich beklagen bei + Dat",
+         "boxes":[
+            9
+         ]
+      }
+   },
+   {
+      "pk":30,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to complain about sth. (no solution)",
+         "term":"sich beklagen \u00fcber + Akk",
+         "boxes":[
+            9
+         ]
+      }
+   },
+   {
+      "pk":31,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to strive towards sth.",
+         "term":"sich bem\u00fchen um + Akk",
+         "boxes":[
+            8
+         ]
+      }
+   },
+   {
+      "pk":32,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to occupy oneself with sth.",
+         "term":"sich besch\u00e4ftigen mit + Dat",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":33,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to complain about sth. (possible solution)",
+         "term":"sich beschweren \u00fcber + Akk",
+         "boxes":[
+            9
+         ]
+      }
+   },
+   {
+      "pk":34,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to apply for sth.",
+         "term":"sich bewerben um + Akk",
+         "boxes":[
+            8
+         ]
+      }
+   },
+   {
+      "pk":35,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to complain to so.",
+         "term":"sich beschweren bei + Dat",
+         "boxes":[
+            9
+         ]
+      }
+   },
+   {
+      "pk":36,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to describe oneself as sth.",
+         "term":"sich bezeichnen als + Akk",
+         "boxes":[
+            8
+         ]
+      }
+   },
+   {
+      "pk":37,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to request (so.) for sth.",
+         "term":"(jdn) bitten um + Akk",
+         "boxes":[
+            8
+         ]
+      }
+   },
+   {
+      "pk":38,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to bring so. to sth.",
+         "term":"jdn bringen zu + Dat",
+         "boxes":[
+            8
+         ]
+      }
+   },
+   {
+      "pk":39,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to thank so. for sth.",
+         "term":"jdm danken f\u00fcr + Akk",
+         "boxes":[
+            8
+         ]
+      }
+   },
+   {
+      "pk":40,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to keep so./sth. in mind",
+         "term":"denken an + Akk",
+         "boxes":[
+            8
+         ]
+      }
+   },
+   {
+      "pk":41,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to be suitable for sth.",
+         "term":"sich eignen f\u00fcr + Akk",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":42,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to agree on sth.",
+         "term":"sich einigen auf + Akk",
+         "boxes":[
+            8
+         ]
+      }
+   },
+   {
+      "pk":43,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to compromise with sth.",
+         "term":"sich einigen mit + Dat",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":44,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to invite so. to sth.",
+         "term":"jdn ein|laden zu + Dat",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":45,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to sicken at sth.",
+         "term":"sich ekeln vor + Dat",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":46,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to decide for/in favor of sth.",
+         "term":"sich entscheiden f\u00fcr + Akk",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":47,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to make up one's mind about sth.",
+         "term":"sich entschlie\u00dfen zu + Dat",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":48,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to apologize for sth.",
+         "term":"sich entschuldigen f\u00fcr + Akk",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":49,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to apologize to so.",
+         "term":"sich entschuldigen bei jdm",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":50,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to recover from sth.",
+         "term":"sich erholen von + Dat",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":51,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to remember sth.",
+         "term":"sich erinnern an + Akk",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":52,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to inquire of so.",
+         "term":"sich erkundigen bei + Dat",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":53,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to sustain/live on sth.",
+         "term":"sich ern\u00e4hren von + Dat",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":54,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to inquire about sth.",
+         "term":"sich erkundigen nach + Dat",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":55,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to bring so. up to sth.",
+         "term":"jdn erzeihen zu + Dat",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":56,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to flee from sth./so.",
+         "term":"fliehen vor + Dat",
+         "boxes":[
+            7
+         ]
+      }
+   },
+   {
+      "pk":57,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to ask for/about so.",
+         "term":"fragen nach + Dat",
+         "boxes":[
+            10
+         ]
+      }
+   },
+   {
+      "pk":58,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to look forward to sth.",
+         "term":"sich freuen auf + Akk",
+         "boxes":[
+            10
+         ]
+      }
+   },
+   {
+      "pk":59,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to be happy about sth.",
+         "term":"sich freuen \u00fcber + Akk",
+         "boxes":[
+            10
+         ]
+      }
+   },
+   {
+      "pk":60,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to dread so./sth.",
+         "term":"sich f\u00fcrchten vor + Dat",
+         "boxes":[
+            10
+         ]
+      }
+   },
+   {
+      "pk":61,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to belong to sth.",
+         "term":"geh\u00f6ren zu + Dat",
+         "boxes":[
+            10
+         ]
+      }
+   },
+   {
+      "pk":62,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"It is has to do with sth.",
+         "term":"es geht um + Akk",
+         "boxes":[
+            10
+         ]
+      }
+   },
+   {
+      "pk":63,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to be regarded/classified as sth.",
+         "term":"gelten als + Nom",
+         "boxes":[
+            10
+         ]
+      }
+   },
+   {
+      "pk":64,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to get into sth.",
+         "term":"geraten in + Akk",
+         "boxes":[
+            10
+         ]
+      }
+   },
+   {
+      "pk":65,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to accustom oneself to sth.",
+         "term":"sich gew\u00f6hnen an + Akk",
+         "boxes":[
+            10
+         ]
+      }
+   },
+   {
+      "pk":66,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to believe in so./sth.",
+         "term":"glauben an + Akk",
+         "boxes":[
+            10
+         ]
+      }
+   },
+   {
+      "pk":67,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to compliment/congratulate so. on sth.",
+         "term":"jdm gratulieren zu + Dat",
+         "boxes":[
+            10
+         ]
+      }
+   },
+   {
+      "pk":68,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to deal with so./sth.",
+         "term":"handeln mit + Dat",
+         "boxes":[
+            10
+         ]
+      }
+   },
+   {
+      "pk":69,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to be about sth.",
+         "term":"handeln von + Dat",
+         "boxes":[
+            10
+         ]
+      }
+   },
+   {
+      "pk":70,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to concern sth.",
+         "term":"sich handeln um + Akk",
+         "boxes":[
+            10
+         ]
+      }
+   },
+   {
+      "pk":71,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to be attached to so./sth.",
+         "term":"h\u00e4ngen an + Dat",
+         "boxes":[
+            10
+         ]
+      }
+   },
+   {
+      "pk":72,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to help so with sth.",
+         "term":"jdm helfen bei + Dat",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":74,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to for sth.",
+         "term":"hoffen auf + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":75,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to catch up on sth.",
+         "term":"sich informieren \u00fcber + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":76,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to be interested in sth.",
+         "term":"sich interessieren f\u00fcr + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":77,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to crusade for sth.",
+         "term":"k\u00e4mpfen + f\u00fcr",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":78,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to crusade against sth.",
+         "term":"k\u00e4mpfen gegen + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":79,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to wage a fight for sth.",
+         "term":"k\u00e4mpfen um + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":80,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to take care of so./sth.",
+         "term":"sich k\u00fcmmern um + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":81,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to laugh about sth.",
+         "term":"lachen \u00fcber + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":82,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to live on sth.",
+         "term":"leben von + Dat",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":83,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to suffer from sth.",
+         "term":"leiden an + Dat",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":84,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to be afflicted by sth.",
+         "term":"leiden unter +Dat",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":85,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to reflect on sth.",
+         "term":"nach|denken \u00fcber + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":86,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to be in line with sth.",
+         "term":"passen zu + Dat",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":87,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to protest against sth.",
+         "term":"protestieren gegen + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":88,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to get back at so.",
+         "term":"sich r\u00e4chen an + Dat",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":89,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to account for sth.",
+         "term":"rechnen mit + Dat",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":90,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to talk about so./sth.",
+         "term":"reden \u00fcber + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":91,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to smell of sth.",
+         "term":"reichen nach + Dat",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":92,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to shoot at so./sth.",
+         "term":"schie\u00dfen auf + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":93,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to scold so.",
+         "term":"schimpfen mit + Dat",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":94,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to taste of sth.",
+         "term":"schmecken nach + Dat",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":95,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to write to so.",
+         "term":"(etw)schreiben an + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":96,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to write about sth.",
+         "term":"schreiben \u00fcber + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":97,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to long for so./sth.",
+         "term":"sich sehnen nach + Dat",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":98,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to safegaurd (oneself) against sth.",
+         "term":"(sich) sch\u00fctzen vor + Dat",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":99,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to look after so./sth.",
+         "term":"sorgen f\u00fcr + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":100,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to worry about sth.",
+         "term":"sich sorgen um + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":101,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to twiddle with sth.",
+         "term":"spielen mit + Dat",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":102,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to play for sth.",
+         "term":"spielen um + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":103,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to talk to so.",
+         "term":"sprechen mit + Dat",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":104,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to talk about so./sth.",
+         "term":"sprechen \u00fcber + Akk",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":105,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to refer to sth.",
+         "term":"sprechen von + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":106,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to marvel at sth.",
+         "term":"staunen \u00fcber + Akk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":107,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to die from sth.",
+         "term":"sterben an + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":108,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to vote for sth.",
+         "term":"stimmen f\u00fcr + Akk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":109,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to vote against sth.",
+         "term":"stimmen gegen + Akk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":110,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to be at odds with so.",
+         "term":"sich streiten mit + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":111,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to fight over sth.",
+         "term":"(sich) streiten um + Akk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":112,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to search for so./sth.",
+         "term":"suchen nach + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":113,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to participate in sth.",
+         "term":"teil|nehmen an + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":114,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to talk on the phone with so.",
+         "term":"telefonieren mit + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":115,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to dream about so./sth.",
+         "term":"tr\u00e4umen von + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":116,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to break up with so.",
+         "term":"sich trennen von + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":117,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to talk so. into sth.",
+         "term":"jdn \u00fcberreden zu + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":118,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to assure so. of sth.",
+         "term":"jdn \u00fcberzeugen von + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":119,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to converse with so.",
+         "term":"sich unterhalten mit + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":120,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to converse about sth.",
+         "term":"sich unterhalten \u00fcber + Akk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":121,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to make a date with so.",
+         "term":"sich verabreden mit + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":122,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to command sth.",
+         "term":"verf\u00fcgen \u00fcber + Akk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":123,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to ask sth. of so.",
+         "term":"etw verlangen von + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":124,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to rely on so./sth.",
+         "term":"sich verlassen auf + Akk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":125,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to fall in love with so.",
+         "term":"sich verlieben in + Akk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":126,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to be in breach of sth.",
+         "term":"versto\u00dfen gegen + Akk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":127,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to get along with so.",
+         "term":"sich vertragen mit + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":128,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to renounce sth.",
+         "term":"verzichten auf + AKk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":129,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to prepare oneself for sth.",
+         "term":"sich vor|bereiten auf + Akk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":130,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to elect to sth.",
+         "term":"w\u00e4hlen zu + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":131,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to warn so. from so./sth.",
+         "term":"jdn warnen vor + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":132,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to wait for so./sth.",
+         "term":"warten auf + Akk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":133,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to resist so./sth.",
+         "term":"sich wehren gegen + Akk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":134,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to wager sth.",
+         "term":"wetten um + Akk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":135,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to wonder about sth.",
+         "term":"sich wundern \u00fcber + Akk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":136,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to approach so.",
+         "term":"zu|gehen auf + Akk",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":137,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to doubt so./sth.",
+         "term":"zweifeln an + Dat",
+         "boxes":[
+            17
+         ]
+      }
+   },
+   {
+      "pk":138,
+      "model":"flashcardapp.flashcard",
+      "fields":{
+         "definition":"to talk with so.",
+         "term":"reden mit + Dat",
+         "boxes":[
+            16
+         ]
+      }
+   },
+   {
+      "pk":1,
+      "model":"flashcardapp.label",
+      "fields":{
+         "userKey":null,
+         "name":"Definition"
+      }
+   },
+   {
+      "pk":2,
+      "model":"flashcardapp.label",
+      "fields":{
+         "userKey":null,
+         "name":"Translation"
+      }
+   },
+   {
+      "pk":3,
+      "model":"flashcardapp.label",
+      "fields":{
+         "userKey":null,
+         "name":"Graph"
+      }
+   },
+   {
+      "pk":4,
+      "model":"flashcardapp.label",
+      "fields":{
+         "userKey":null,
+         "name":"Picture"
+      }
+   },
+   {
+      "pk":5,
+      "model":"flashcardapp.label",
+      "fields":{
+         "userKey":null,
+         "name":"Song"
+      }
+   },
+   {
+      "pk":6,
+      "model":"flashcardapp.label",
+      "fields":{
+         "userKey":null,
+         "name":"Sound"
+      }
+   },
+   {
+      "pk":7,
+      "model":"flashcardapp.label",
+      "fields":{
+         "userKey":null,
+         "name":"Conjugation"
+      }
+   },
+   {
+      "pk":8,
+      "model":"flashcardapp.label",
+      "fields":{
+         "userKey":1,
+         "name":"Plural"
+      }
+   },
+   {
+      "pk":9,
+      "model":"flashcardapp.label",
+      "fields":{
+         "userKey":1,
+         "name":"Dativ"
+      }
+   },
+   {
+      "pk":10,
+      "model":"flashcardapp.label",
+      "fields":{
+         "userKey":1,
+         "name":"Past Perfect"
+      }
+   },
+   {
+      "pk":11,
+      "model":"flashcardapp.label",
+      "fields":{
+         "userKey":1,
+         "name":"Simple Past"
+      }
+   }
+]

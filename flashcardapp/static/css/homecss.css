@@ -1,0 +1,57 @@
+/*Homepage CSS*/
+
+/*Need to group things together based on which portion of the page they effect. Some things can also probably be consolidated. */
+
+/*body
+{
+	background-color: #33ADFF;
+}*/
+
+.navigationBox
+{
+	/*border: 1px solid red;*/
+	width: 200px;
+	height: 175px;
+	margin: 10px;
+	display: inline-block;
+}
+
+.navIcon
+{
+	width: 128px;
+	height: 128px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 23px;
+	border: 1px solid blue;
+}
+
+.icondescription
+{
+	/*border: 1px solid yellow;*/
+	margin-top: 40px;
+	font-size: 13px;
+	display: none;
+}
+
+#tostudy
+{
+	position: relative;
+	font-size: 20px;
+	color: red;
+	top: -128px;
+	right: -120px;
+}
+
+.iconlabel
+{
+	display: block;
+	text-align: center;
+}
+
+#imagelinks, #imagelinks div
+{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}

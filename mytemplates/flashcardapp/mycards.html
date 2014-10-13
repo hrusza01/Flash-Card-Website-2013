@@ -1,0 +1,113 @@
+{% extends "flashcardapp/base.html" %}
+
+<html>
+	<head>
+		{% load static from staticfiles %}
+		
+		{% block additionalcss %}
+		<link rel="stylesheet" type="text/css" href="{% static "css/mycards.css" %}" />
+		{% endblock additionalcss %}
+		
+    	{% block javascript %}
+    	<script type="text/javascript" src="{% static "javascript/editdialog.js" %}"></script>
+    	<script type="text/javascript">
+    		//Have to define the static image files path here otherwise the javascript file doesn't know where they are
+    		var staticImagePath = "{% static "images/" %}";
+    	</script>
+    	<script type="text/javascript" src="{% static "javascript/mycards.js" %}"></script>
+    	{% endblock javascript %}
+    	
+	</head>
+
+	<body>
+		{% block pagebanner %}
+			<h1 id="pagetitle">My Cards</h1>
+		{% endblock pagebanner %}
+		
+		{% block dialogs %}
+		<!------- Begin Popup Dialogs Section ------->
+			<div class="dialog" id="deletealert" title="Delete Confirmation">
+				<span>Are you sure you want to delete the selected <span id="deletetype"> </span>? You cannot undo this.</span>
+			</div>
+			
+			<div class="dialog" id="sharealert" title="Share Confirmation">
+				<p>
+					Are you sure you want to publish the selected Unit? This will make all study boxes and flashcards within them public.
+					Any changes made to this Unit will be automatically pushed to the public version.
+				</p>
+				<span id="taginfo">
+					*We recommend adding Tags to your shared cards. These tags help to better define your cards and help other users search for them.
+					<div class="ui-widget">
+  						<label for="tagsinput">Tags: </label>
+  						<input id="tagsinput" size="50" />
+					</div>
+					<!-- <button>Create Tags</button> -->
+				</span>
+				<div id="tags-container" ></div>
+			</div>
+			
+			<div class="dialog" id="unsharealert" title="Unshare Confirmation">
+				<span>
+					Are you sure that you want to unpublish the selected unit? This will remove it from Browse Shared and so other users will be unable to study,
+					download, or recieve updates for the study boxes and flashcards within this unit.
+				</span>
+			</div>
+			
+			<div class="dialog" id="editclassdialog" title="Edit Class Name">
+				<p>Please enter a new name for your Class.</p>
+                Class Title: <input type="text" id="newclassname"><br>
+			</div>
+			
+			<div class="dialog" id="editcontainerdialog" title="Edit Container Name">
+				<p>Please enter a new name for your container.</p>
+                Container Title: <input type="text" id="newcontainername">
+			</div>
+			
+			<div class="dialog" id="editboxdialog" title="Edit Box Name">
+				<p>Please enter a new name for your box.</p>
+                Box: <input type="text" id="newboxname">
+			</div>
+			
+			<div class="dialog" id="editcarddialog" title="Edit Flashcard Sides">
+				<p>Please enter the front and back of your card.</p>
+                <label>Front:</label>
+                <textarea rows="2" cols="40" id='newcardfront' class="cardfront"> </textarea><hr>
+                <div id="editbackdiv">
+                	
+                </div>
+                <button class ='addButton' onclick="addBackSide()">Add New Back</button>
+			</div>
+			
+			<!------- End Dialog Declaration ------->
+		{% endblock dialogs %}	
+			
+		{% block content %}
+			<p><a id="allclasses" href="">Classes:</a><span id="selectedclass"> </span></p>
+			
+			<div id="mainsection">
+				<section id="tools">
+					<button class="buttontool" id="edit" disabled="disabled">Edit</button>
+					<button class="buttontool" id="delete" disabled="disabled">Delete Selected</button>
+					<label for="moveto">Move to: </label><select id="moveto">
+						<option>Move Flashcard or Box</option>
+						<!-- If a box is selected, move to will be containers, if a card is selected it will be boxes -->
+					</select>
+					<button id="move" disabled="disabled">Move Selection</button>
+				</section>
+				<div id="mycards">
+					<ul id="classlist" class="fileview">
+						{% for class in classlist %}
+							{% if class.title != "__default__" %}
+								<li>
+									<img src="{% static "images/classicon.png" %}" class="classimage selectable" title="Double Click to Open this Class" />
+									<span class="classname" data-classid="{{ class.Id }}">{{class.title}}</span>
+								</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		{% endblock content %}
+	</body>
+
+</html>

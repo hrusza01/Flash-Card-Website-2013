@@ -1,0 +1,146 @@
+
+.title{
+
+    position: relative;     
+    margin-top: 18px;     
+    color: white;     
+    border-radius: 10px;     
+    position: relative;     
+    background: #FF9900;     
+    bottom: 29px;     
+    height: 42px;     
+    width: 167px;     
+    font-size: 19px;     
+    text-align: center;     
+    margin-left: -10px;     
+    padding-top: 14px;
+
+
+}
+.description
+{
+	font-size: 13px;
+	position: absolute;
+	top: 183px;
+	margin-left: -3px;
+
+}
+.example
+{
+	position: relative;
+	top:15px;
+	font-style: italic;
+}
+
+#createicon
+{
+	width:104px;
+}
+
+
+textarea
+{
+	resize:none;
+}
+#carddialog #backarea select, #carddialog #backarea label
+{
+	vertical-align: 20px;
+}
+#page
+{
+	text-align: center;
+}
+
+#add
+{
+	font:italic;
+}
+
+#dropbox
+{
+	border:dotted;
+	padding: 1%;
+	margin-right:50px;
+	margin-left:50px;
+}
+#pageinfo
+{
+	font-weight: bold;
+	font-size: 19px;
+	text-align: center;
+}
+legend
+{
+	margin-left:50px;
+}
+
+#userinput
+{
+	border:solid;
+	padding: 1%;
+	margin-right:50px;
+	margin-left:50px;
+}
+
+#classbox, #containerbox, #boxbox, #cardbox
+{
+	padding: 10px;
+	border:solid;
+	height:250px;
+	width:147px;
+	display: inline-block;
+	text-align:center;
+    box-shadow: 7px 7px 3px #888888;
+	border-radius: 10px;
+	cursor: pointer;
+
+	
+}
+
+#boxdialog, #containerdialog, #carddialog, #classdialog
+{
+	overflow:hidden;
+	display: none;
+
+}
+
+#carddialog 
+{
+	font-size: 12px;
+}
+
+
+.cardclasslabel
+{
+	margin-right: 28px;
+	width:80px;
+}
+.boxclasslabel
+{
+	margin-right:40px;
+}
+.boxlabel
+{
+	margin-right: 35px;
+	width:90px;
+}
+.countainerlabel
+{
+	margin-right:8px;
+}
+#backarea
+{
+	border: solid;
+	overflow: auto; 
+  	height: 190px;
+}
+
+#cardback
+{
+	vertical-align: middle;
+}
+#classoption,#containeroption,#boxoption
+{
+	text-align:left;
+
+}

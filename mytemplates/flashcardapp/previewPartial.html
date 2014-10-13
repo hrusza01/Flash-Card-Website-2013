@@ -1,0 +1,134 @@
+<script>
+	$(function() {
+		var boxflashcarddata = {{boxflashcarddata|safe}};
+		var currentBoxIndex = 0;
+		var numberOfBoxes = boxflashcarddata.data.length;
+		var currentCardIndex = 0;
+		var numberOfCardsInCurrentBox = boxflashcarddata.data[currentBoxIndex].flashcards.length;
+		
+		var index = 1;
+		var totalCards = 0;
+		for (var i=0; i < numberOfBoxes; i++) {
+			totalCards = totalCards + boxflashcarddata.data[i].flashcards.length;
+		}
+		$("#total").html(totalCards);
+		
+		if (boxflashcarddata.message === "SUCCESS") {
+			updateSideInfo();
+			updateSidesDropdownAndIndex();
+		}
+		
+		function updateSidesDropdownAndIndex() {
+			var sides = boxflashcarddata.data[currentBoxIndex].flashcards[currentCardIndex].sides;
+			$("#reverseside").html('');
+			if (sides != null) {
+				for (var i=0; i<sides.length; i++) {
+					$("#reverseside").append('<option value="'+ sides[i].label +'" data-sidenum="'+ i +'">'+ sides[i].label +'</option>');
+				}
+			}
+			$("#index").html(index); //Update the current card index
+			updateSideInfo();
+		}
+		
+		function updateSideInfo() {
+			var currentCard = boxflashcarddata.data[currentBoxIndex].flashcards[currentCardIndex];
+			$("#term").html(currentCard.term);
+			//var defaultSide = currentCard.defaultSideLabel.name;
+			$("#backside").html(currentCard.sides[0].text);
+			
+			$("#term").show();
+			$("#backside").hide();
+			$("#sidelabel").html("Term");
+		}
+
+		$("#previous").click(function() {
+			if (currentCardIndex === 0) {
+				if (currentBoxIndex === 0) {
+					currentBoxIndex = numberOfBoxes - 1;
+					index = totalCards;
+				}
+				else {
+					currentBoxIndex--;
+					index--;
+				}
+				numberOfCardsInCurrentBox = boxflashcarddata.data[currentBoxIndex].flashcards.length;
+				currentCardIndex = numberOfCardsInCurrentBox - 1;
+			}
+			else {
+				currentCardIndex--;
+				index--;
+			}
+			updateSideInfo();
+			updateSidesDropdownAndIndex();
+		});
+		
+		$("#next").click(function() {
+			if (currentCardIndex === numberOfCardsInCurrentBox-1) {
+				currentBoxIndex = (currentBoxIndex + 1)%numberOfBoxes;
+				currentCardIndex = 0;
+				numberOfCardsInCurrentBox = boxflashcarddata.data[currentBoxIndex].flashcards.length;
+				if (index + 1 > totalCards) {
+					index = 1;
+				}
+				else {
+					index++
+				}
+			}
+			else {
+				currentCardIndex++;
+				index++;
+			}
+			updateSideInfo();
+			updateSidesDropdownAndIndex();
+		});
+		
+		$("#reverseside").change(function() {
+			var sideSelected = $("#reverseside :selected").val();
+			var currentCard = boxflashcarddata.data[currentBoxIndex].flashcards[currentCardIndex];
+			
+			//Get the appropriate side from the sides part of the data.
+			var sides = boxflashcarddata.data[currentBoxIndex].flashcards[currentCardIndex].sides;
+			var selectedBack = sides[$("#reverseside :selected").data("sidenum")];
+			$("#backside").html(selectedBack.text);
+			
+			if ($("#backside").is(":visible")) {
+				var backlabel = "Back: " + $("#reverseside :selected").val();
+				$("#sidelabel").html(backlabel);
+			}
+		});
+		
+		$("#carddisplay").click(function() {
+			$("#term").toggle();
+			$("#backside").toggle();
+			if ($("#backside").is(":visible")) {
+				var backlabel = "Back: " + $("#reverseside :selected").val();
+				$("#sidelabel").html(backlabel);
+			}
+			else {
+				$("#sidelabel").html("Term");
+			}
+		});
+	});
+</script>
+
+	<div id="carddisplay">
+		<span id="sidelabel">Term</span>
+		<p id="term">Term</p>
+		<p id="backside">Definition or whatever</p>
+	</div>
+	 
+<section id="controls">
+	<span id="fliptip">(Click the pane to flip the card)</span>
+	
+	<label for="reverseside">Back Side: </label>
+	<select id="reverseside">
+	</select>
+	
+	<nav id="navigator">
+		<button id="previous">&lt;-</button>
+		<span id="index">1</span> of <span id="total">5</span>
+		<button id="next">-&gt;</button>
+	</nav>
+	
+</section>
+
